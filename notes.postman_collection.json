@@ -1,0 +1,104 @@
+{
+	"info": {
+		"_postman_id": "d719ec87-8957-4bcd-a245-3de44f1f20ed",
+		"name": "notes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "notes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/api/notes",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"notes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "note/add",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Заголовок заметки\",\r\n    \"info\": \"АБОБА2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}/api/note/add",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"note",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "note/{id}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/api/note/1",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"note",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "28ac0ada-7cad-4c7c-a5fb-950ac221bbfe",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "8305d8b3-73e6-4f0a-9206-d02e5bbf93c2",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "8a2b2773-bd5d-4c31-95f5-3f5ed21eb27c",
+			"key": "server",
+			"value": "http://localhost:9090"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
