@@ -1,0 +1,151 @@
+{
+	"info": {
+		"_postman_id": "0171a7e1-431b-41ac-951b-4fde9aad245f",
+		"name": "notice_api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "add",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"XD\",\r\n    \"info\": \"LOL\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}/api/note/add",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"note",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "note/:id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/api/note/1",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"note",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "note",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"created_at\": \"2022-04-16T00:00:00\",\r\n    \"title\": \"Записка5\",\r\n    \"info\": \"Привет\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}/api/note/edit",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"note",
+						"edit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "note/:id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/api/note/2",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"note",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "notes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/api/notes",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"notes"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				],
+				"id": "d3a3b3cf-ccdd-414c-b66f-d1fffdb49e3d"
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				],
+				"id": "b5436f59-d89d-42c5-902f-84e4a6aa6a75"
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "3bccd466-6650-493e-bd37-efb53d4e8644",
+			"key": "server",
+			"value": "http://localhost:9090"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
