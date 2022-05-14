@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "0171a7e1-431b-41ac-951b-4fde9aad245f",
+		"_postman_id": "95bb8e32-0215-492d-85fe-c4d4c5a0f634",
 		"name": "notice_api",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -59,7 +59,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": 1,\r\n    \"created_at\": \"2022-04-16T00:00:00\",\r\n    \"title\": \"Записка5\",\r\n    \"info\": \"Привет\"\r\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -125,8 +125,7 @@
 				"type": "text/javascript",
 				"exec": [
 					""
-				],
-				"id": "d3a3b3cf-ccdd-414c-b66f-d1fffdb49e3d"
+				]
 			}
 		},
 		{
@@ -135,17 +134,14 @@
 				"type": "text/javascript",
 				"exec": [
 					""
-				],
-				"id": "b5436f59-d89d-42c5-902f-84e4a6aa6a75"
+				]
 			}
 		}
 	],
 	"variable": [
 		{
-			"id": "3bccd466-6650-493e-bd37-efb53d4e8644",
 			"key": "server",
 			"value": "http://localhost:9090"
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }
