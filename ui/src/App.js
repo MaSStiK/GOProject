@@ -5,6 +5,7 @@ import './App.css';
 function App() {
   const [notes, setNotes] = useState(null);
   const [isUpdate, setIsUpdate] = useState(false);
+  const [isDelete, setIsDelete] = useState(false);
 
   const inputTitle = useRef(null)
   const inputInfo = useRef(null)
@@ -32,18 +33,44 @@ function App() {
     })
   }
 
+  const deleteNote = (id) => {
+    axios.delete(
+      'http://localhost:9090/api/note/' + id, {
+        withCredentials: false
+      }
+    ).then(() => {
+      setIsUpdate(!isDelete)
+    })
+  }
+
   return (
     <div className="App">
 
-    <label>Заголовок</label>
-    <input ref={inputTitle} type="text"/>
-    <label>Описание</label>
-    <input ref={inputInfo} type="text"/>
-    <button onClick={() => addNote()}>Добавить</button>
+      <div class="content">
+        {!!notes && notes.map((note, index) => (
+          <div className="note">
+            <div className="title" key={'note_' + index}>{note.title}</div>
+            <div className="text" key={'noteText_' + index}>{note.info}</div>
+            <button className="del" onClick={() => deleteNote(note.id)}>Удалить</button>
+          </div>   
+        ))}
+      </div>
 
-    {!!notes && notes.map((note, index) => (
-      <div key={'note_' + index}>{note.title}</div>
-    ))}
+      <div className="footer">
+        <div className="setTitle">
+          <div>Заголовок</div>
+          <input ref={inputTitle} type="text"/>
+        </div>
+        
+        <div className="set_text">
+          <div>Описание</div>
+          <input ref={inputInfo} type="text"/>
+        </div>
+        
+        <div className="add_button_block">
+          <button className="add_button" onClick={() => addNote()}>Добавить</button>
+        </div>
+      </div>
 
     </div>
   );
