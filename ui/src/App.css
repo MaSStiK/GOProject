@@ -13,16 +13,33 @@ html, body {
   flex-direction: column;
 }
 
-.content {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  margin-bottom: 150px;
+.bg {
   background-image: url("https://coolbackgrounds.io/images/backgrounds/index/sea-edge-79ab30e2.png");
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: center center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 150px;
+}
+
+.note_full {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
 }
 
 .note {
@@ -32,8 +49,8 @@ html, body {
   border-radius: 6px;
   width: 150px;
   height: 250px;
-  margin: 10px;
   padding: 5px;
+  margin-bottom: 5px;
   overflow: auto;
   word-wrap: break-word;
   background-color: rgb(169, 229, 233);
@@ -50,6 +67,19 @@ html, body {
 .text {
   font-size: 16px;
   font-weight: 600;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.del_img, .edit_img {
+  cursor: pointer;
+  height: 25px;
+  width: 25px;
 }
 
 .footer {

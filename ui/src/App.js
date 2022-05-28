@@ -16,6 +16,7 @@ function App() {
         withCredentials: false
       }).then(r => {
         console.log(r.data);
+        r.data.sort()
         setNotes(r.data);
       });
   }, [isUpdate]);
@@ -33,26 +34,53 @@ function App() {
     })
   }
 
-  const deleteNote = (id) => {
+  const deleteNote = (note_id) => {
+    console.log("Delete: " + note_id)
     axios.delete(
-      'http://localhost:9090/api/note/' + id, {
+      'http://localhost:9090/api/note/' + note_id, {
         withCredentials: false
       }
     ).then(() => {
-      setIsUpdate(!isDelete)
+      setIsUpdate(!isUpdate)
+      setIsDelete(!isDelete)
+    })
+  }
+
+  const editNote = (note_id) => {
+    console.log("Edit: " + note_id)
+    axios.put(
+      'http://localhost:9090/api/note/edit', {
+        id: note_id,
+        created_at: "2022-04-16T00:00:00",
+        title: inputTitle.current.value,
+        info: inputInfo.current.value
+      }, {
+        withCredentials: false
+      }
+    ).then(() => {
+      setIsUpdate(!isUpdate)
     })
   }
 
   return (
     <div className="App">
 
-      <div class="content">
+      <div className="bg"></div>
+
+      <div className="content">
         {!!notes && notes.map((note, index) => (
-          <div className="note">
-            <div className="title" key={'note_' + index}>{note.title}</div>
-            <div className="text" key={'noteText_' + index}>{note.info}</div>
-            <button className="del" onClick={() => deleteNote(note.id)}>Удалить</button>
-          </div>   
+          <div className="note_full" id={"note_" + note.id} key={'note_' + index}>
+            <div className="note" key={'note_' + index}>
+              <div className="title" key={'note_' + index}>{note.title}</div>
+              <div className="text" key={'noteText_' + index}>{note.info}</div>
+            </div>
+            <div className="buttons">
+              <img className="del_img" src="http://simpleicon.com/wp-content/uploads/cross.png" alt="" onClick={() => deleteNote(note.id)}></img>
+              <img className="edit_img" src="http://simpleicon.com/wp-content/uploads/pencil.png" alt="" onClick={() => editNote(note.id)}></img>
+            </div>
+            
+          </div>
+          
         ))}
       </div>
 
