@@ -10,13 +10,16 @@ function App() {
   const inputTitle = useRef(null)
   const inputInfo = useRef(null)
 
+  let isEdit = false;
+
   useEffect(() => {
     axios.get(
       'http://localhost:9090/api/notes', {
         withCredentials: false
       }).then(r => {
         console.log(r.data);
-        r.data.sort()
+        let dataSorted = [];
+        r.data.sort((a, b) => (a.id > b.id) ? 1 : -1);
         setNotes(r.data);
       });
   }, [isUpdate]);
@@ -75,12 +78,10 @@ function App() {
               <div className="text" key={'noteText_' + index}>{note.info}</div>
             </div>
             <div className="buttons">
-              <img className="del_img" src="http://simpleicon.com/wp-content/uploads/cross.png" alt="" onClick={() => deleteNote(note.id)}></img>
+              <img className="del_img" src="https://avatanplus.com/files/resources/original/5968a2c8f2ed115d40bbe123.png" alt="" onClick={() => deleteNote(note.id)}></img>
               <img className="edit_img" src="http://simpleicon.com/wp-content/uploads/pencil.png" alt="" onClick={() => editNote(note.id)}></img>
             </div>
-            
           </div>
-          
         ))}
       </div>
 
